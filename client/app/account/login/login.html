@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+    </div>
+    <div class="col-sm-12">
+      <br/>
+      <br/>
+      <br/>
+      <form class="form-horizontal" name="form" ng-submit="vm.login(form)" novalidate>
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-4">
+            <span class="block input-icon input-icon-right email-input">
+              <input type="text" name="email" class="form-control" ng-model="vm.user.username" required placeholder="Nume utilizator">
+              <i class="icon-user"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-4">
+             <span class="block input-icon input-icon-right password-input">
+            <input type="password" name="password" class="form-control" ng-model="vm.user.password" required placeholder="Parolă">
+               <i class="icon-lock"></i>
+               </span>
+          </div>
+        </div>
+
+        <div class="form-group has-error">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-4">
+            <p class="help-block" ng-show="form.email.$error.required && form.password.$error.required && vm.submitted">
+              Introdu un nume de utilizator &#351;i o parol&#x103;!
+            </p>
+            <p class="help-block" ng-show="form.email.$error.email && vm.submitted">
+              Indrodu o adres&#x103; valid&#x103;
+            </p>
+            <p class="help-block">{{ vm.errors.other }}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-4 loginBtn">
+            <md-button class="md-raised md-primary " type="submit" style="float: right">&nbsp;Intr&#259; &#238;n cont&nbsp;</md-button>
+          </div>
+          <!--<a class="btn btn-default btn-lg btn-register" ui-sref="signup">-->
+          <!--Register-->
+          <!--</a>-->
+        </div>
+      </form>
+    </br>
+  </div>
+</div>

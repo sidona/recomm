@@ -1,0 +1,41 @@
+<div layout="column" layout-wrap>
+  <div flex="100">
+    <table class="md-table">
+      <thead>
+      <tr>
+        <th flex="5" class="md-table-header" style="padding: 5px">#</th>
+        <th flex="10" class="md-table-header" style="padding: 5px">Oportunitatea</th>
+        <th flex="10" class="md-table-header" style="padding: 5px">Agen&#355;ia</th>
+        <th flex="10" class="md-table-header" style="padding: 5px">Informa&#355;ii adi&#355;ionale</th>
+        <th flex="10" class="md-table-header" style="padding: 5px">Data aplic&#259;rii</th>
+        <th flex="15" class="md-table-header" style="padding: 5px">Comentariu</th>
+        <th flex="15" class="md-table-header" style="padding: 5px">Status</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="candidate in $ctrl.candidates.slice((($ctrl.currentPage-1)*$ctrl.itemsPerPage), (($ctrl.currentPage)*$ctrl.itemsPerPage))" class="md-table-content-row">
+        <td class="md-table-content-myApply">{{$index+1}}</td>
+        <td class="md-table-content-myApply">{{candidate.job.title}}</td>
+        <td class="md-table-content-myApply">{{candidate.for_agency}}</td>
+        <td class="md-table-content-myApply">
+          <div hm-read-more hm-text="{{candidate.information}}" hm-limit="{{$ctrl.limit}}"
+               hm-more-text="{{$ctrl.moreText}}"
+               hm-less-text="{{$ctrl.lessText}}"
+               hm-dots-class="{{$ctrl.dotsClass}}" hm-link-class="{{$ctrl.linkClass}}" class="content-read-more"
+               style="max-width: 400px; outline: none">
+          </div>
+          </td>
+        <td class="md-table-content-myApply">{{candidate.created_at | date: 'mediumDate'}}</td>
+        <td class="md-table-content-myApply">{{candidate.comment}}</td>
+        <td class="md-table-content-myApply">{{candidate.status}}</td>
+
+      </tr>
+      </tbody>
+    </table>
+    <uib-pagination total-items="$ctrl.totalItems" ng-model="$ctrl.currentPage" ng-change="$ctrl.pageChanged()"
+                    class=" $scope.totalItems = 64;pagination-sm" items-per-page="$ctrl.itemsPerPage"
+                    previous-text="&#xce;napoi" next-text="&#xce;nainte"></uib-pagination>
+  </div>
+</div>
+</div>

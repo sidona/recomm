@@ -1,0 +1,152 @@
+<div class="col-md-12" ng-cloak>
+
+
+  <form method="post" name="applyForm" id="cv_upload_form"
+        ng-submit="applyForm.$valid && $ctrl.submit()">
+    <fieldset>
+
+      <!-- Form Name -->
+      <legend>Recomandare <span ng-show="$ctrl.showRecomandare"> pentru oportunitatea: {{$ctrl.jobTitle.title}}</span> </legend>
+
+      <!-- Text input-->
+      <div layout="row" layout-wrap>
+        <div class="formJob" layout="row" layout-align="center center" layout-fill>
+          <md-whiteframe class="md-whiteframe-z1" layout="column" flex="45" layout-padding>
+
+            <div layout-gt-xs="row">
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>Nume candidat</label>
+                <input type="text" required name="name" ng-model="$ctrl.full_name" required  minlength="5" md-maxlength="100"
+                       autocomplete="on">
+                <div ng-messages="applyForm.name.$error">
+                  <div ng-message="md-maxlength">Numele introdus trebuie s&#x103; aib&#x103; maxim 100 de caractere!</div>
+                  <div ng-message="minlength">Numele trebuie s&#x103; aib&#x103; minim 5 caractere!</div>
+                  <div ng-message="required">C&acirc;mp obligatoriu!</div>
+                </div>
+              </md-input-container>
+            </div>
+
+            <!--job skill-->
+            <div layout-gt-xs="row">
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>Aptitudini</label>
+                <input type="text" required name="jobSkill" ng-model="$ctrl.skill" required minlength="3" md-maxlength="100"/>
+                <div ng-messages="applyForm.jobSkill.$error">
+                  <div ng-message="md-maxlength">Aptitudinile introduse trebuie s&#x103; aib&#x103; maxim 100 de caractere!</div>
+                  <div ng-message="minlength">Aptitudinile introduse trebuie s&#x103; aib&#x103; minim 5 caractere!</div>
+                  <div ng-message="required">C&acirc;mp obligatoriu!</div>
+                </div>
+              </md-input-container>
+            </div>
+            <!-- Upload form -->
+            <div layout-gt-xs="row" layout-align="space-between">
+              <md-input-container class="md-block" flex-gt-xs>
+              <label style="display: inline">Nume CV:<div ng-bind="$ctrl.file.name"></div></label>
+                </md-input-container>
+
+              <div>
+                <form name="form">
+                  <md-button class="md-raised md-primary">
+                    <div class="button" ngf-select ng-model="$ctrl.file" name="file" ngf-pattern="'application/pdf'"
+                         ngf-accept="'application/pdf'" ngf-max-size="20MB" ngf-min-height="100">Alege</div>
+                  </md-button>
+                  <!--<md-button class="md-raised" type="submit" ng-click="$ctrl.submitUpload()">Upload</md-button>-->
+                  <div class="hint" style="font-size: x-small;">Selecteaz&#x103; fi&#x15f;ierele cu format .pdf</div>
+                </form>
+              </div>
+
+            </div>
+            <!-- Text input-->
+            <div layout-gt-xs="row">
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>E-mail</label>
+                <input required type="email" name="clientEmail" ng-model="$ctrl.email"
+                       minlength="5" maxlength="30" ng-pattern="/^.+@.+\..+$/"/>
+
+                <div ng-messages="applyForm.clientEmail.$error" role="alert">
+                  <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                    Introduce&#355;i o adres&#x103; de e-mail valid&#x103; (ex. P5user@pentalog.fr)!
+
+                  </div>
+                </div>
+              </md-input-container>
+            </div>
+
+
+            <div layout-gt-xs="row">
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>Rela&#x163;ia cu persoana recomandat&#x103;</label>
+                <input type="text" required name="relation" ng-model="$ctrl.relation" required  minlength="5" md-maxlength="100"
+                       autocomplete="on">
+                <div ng-messages="applyForm.relation.$error">
+                  <div ng-message="md-maxlength">Acest c&acirc;mp trebuie s&#x103; aib&#x103; maxim 100 de caractere!</div>
+                  <div ng-message="minlength">Acest c&acirc;mp trebuie s&#x103; aib&#x103; minim 5 caractere!</div>
+                  <div ng-message="required">C&acirc;mp obligatoriu!</div>
+                </div>
+              </md-input-container>
+            </div>
+
+            <!-- Select Multiple agency -->
+            <div layout-gt-xs="row">
+              <md-input-container class="md-block" flex-gt-xs>
+                <label class="col-md-4">Agen&#x163;ia</label>
+                <md-select ng-model="$ctrl.for_agency" name="agency" required>
+                  <md-option>Bra&#x15f;ov</md-option>
+                  <md-option>Cluj</md-option>
+                  <md-option>Ia&#x15f;i</md-option>
+                  <md-option>Bucure&#x15f;ti</md-option>
+                  <md-option>Chi&#x15f;inau</md-option>
+                  <md-option>Hanoi</md-option>
+                  <md-option>Orleans</md-option>
+                </md-select>
+                <div ng-messages="applyForm.agency.$error">
+                  <div ng-message="required">C&acirc;mp obligatoriu!</div>
+                </div>
+              </md-input-container>
+
+
+              <!-- Select experience -->
+              <md-input-container flex-gt-xs>
+                <label class="col-md-4">Experien&#x163;a</label>
+                <md-select ng-model="$ctrl.experience" name="experience" required>
+                  <md-option>Debutant (0 ani experien&#x163;&#x103;)</md-option>
+                  <md-option>Junior (1-2 ani experien&#x163;&#x103;)</md-option>
+                  <md-option>Confirmat (2-4 ani experien&#x163;&#x103;)</md-option>
+                  <md-option>Experimentat (4-6 ani experien&#x163;&#x103;)</md-option>
+                  <md-option>Senior ( > 7 ani experien&#x163;&#x103;)</md-option>
+                </md-select>
+                <div ng-messages="applyForm.experience.$error">
+                  <div ng-message="required">C&acirc;mp obligatoriu!</div>
+                </div>
+              </md-input-container>
+            </div>
+
+            <!--information about candidate-->
+            <div layout-gt-xs="row">
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>Informa&#x163;ii suplimentare</label>
+                <textarea ng-model="$ctrl.information" name="userMessage" required minlength="5" md-maxlength="512"
+                          md-select-on-focus name="info"  style="text-align: justify">
+                                    </textarea>
+                <div ng-messages="applyForm.userMessage.$error">
+                  <div ng-message="required">Câmp obligatoriu!</div>
+                  <div ng-message="md-maxlength">Textul introdus este prea lung!</div>
+                  <div ng-message="minlength">Textul introdus este prea scurt!</div>
+                </div>
+              </md-input-container>
+            </div>
+
+            <!-- Button (Double) -->
+            <div layout-gt-xs="row" style="text-align: center;margin: 0 auto;">
+            <div class="apply-button">
+                <md-button class="md-raised md-primary" type="submit" ng-disabled="applyForm.$invalid" ng-click="$ctrl.submitUpload()">Trimite</md-button>
+                <md-button class="md-raised md-warn" ng-click="$ctrl.redirectJob()" type="reset">Anuleaz&#x103;
+                </md-button>
+              </div>
+            </div>
+          </md-whiteframe>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>

@@ -1,0 +1,123 @@
+<div layout-gt-xs="row">
+  <md-input-container class="md-block" flex-gt-xs>
+    <label class="md-title">Oportunitate</label>
+    <input name="title" ng-model="$ctrl.job.title" required minlength="5" md-maxlength="50"/>
+
+    <div ng-messages="jobForm.title.$error">
+      <div ng-message="md-maxlength">Titlul introdus trebuie s&#x103; aib&#x103; maxim 50 de caractere!</div>
+      <div ng-message="minlength">Titlul trebuie s&#x103; aib&#x103; minim 5 caractere!</div>
+      <div ng-message="required">C&acirc;mp obligatoriu!</div>
+
+    </div>
+
+  </md-input-container>
+</div>
+
+<div layout-gt-xs="row">
+  <md-input-container class="md-block" flex-gt-xs>
+    <label class="md-title">Aptitudini</label>
+    <input type="text" required name="skill" ng-model="$ctrl.job.skill" minlength="3" md-maxlength="100">
+
+    <div ng-messages="jobForm.skill.$error">
+      <div ng-message="md-maxlength">Aptitudinile introduse trebuie s&#x103; aib&#x103; maxim 100 de caractere!</div>
+      <div ng-message="minlength">Aptitudinile introduse trebuie s&#x103; aib&#x103; minim 5 caractere!</div>
+      <div ng-message="required">C&acirc;mp obligatoriu!</div>
+    </div>
+  </md-input-container>
+</div>
+<!--autocomplete job agency-->
+
+<div layout-gt-xs="row">
+  <md-input-container flex-gt-xs>
+    <label class="md-title">Agen&#x163;ia</label>
+    <md-select multiple ng-model="$ctrl.job.for_agency" name="agency" required>
+      <md-option>Bra&#x15f;ov</md-option>
+      <md-option>Cluj</md-option>
+      <md-option>Ia&#x15f;i</md-option>
+      <md-option>Bucure&#x15f;ti</md-option>
+      <md-option>Chi&#x15f;inau</md-option>
+      <md-option>Hanoi</md-option>
+      <md-option>Orleans</md-option>
+    </md-select>
+    <div ng-messages="jobForm.agency.$error">
+      <div ng-message="required">C&acirc;mp obligatoriu!</div>
+    </div>
+  </md-input-container>
+
+  <md-input-container flex-gt-xs>
+    <label class="md-title">Experien&#x163;a</label>
+    <md-select ng-model="$ctrl.job.experience" name="experience" required>
+      <md-option>Debutant (0 ani experien&#x163;&#x103;)</md-option>
+      <md-option>Junior (1-2 ani experien&#x163;&#x103;)</md-option>
+      <md-option>Confirmat (2-4 ani experien&#x163;&#x103;)</md-option>
+      <md-option>Experimentat (4-6 ani experien&#x163;&#x103;)</md-option>
+      <md-option>Senior ( > 7 ani experien&#x163;&#x103;)</md-option>
+    </md-select>
+    <div ng-messages="jobForm.experience.$error">
+      <div ng-message="required">C&acirc;mp obligatoriu!</div>
+    </div>
+  </md-input-container>
+</div>
+
+
+<!--select  client type-->
+<div layout-gt-xs="row">
+  <md-input-container flex-gt-xs>
+    <div>Client nou? &nbsp;&nbsp;
+      <md-checkbox ng-model="$ctrl.job.client_type" ng-true-value="'da'" ng-false-value="'nu'"></md-checkbox>
+    </div>
+  </md-input-container>
+  <!--select job priority-->
+  <md-input-container flex-gt-xs>
+    <label class="md-title">Prioritate</label>
+    <md-select ng-model="$ctrl.job.priority" name="priority" required>
+      <md-option>Urgent</md-option>
+      <md-option>Moderată</md-option>
+      <md-option>Mic&#259;</md-option>
+    </md-select>
+    <div ng-messages="jobForm.priority.$error">
+      <div ng-message="required">C&acirc;mp obligatoriu!</div>
+    </div>
+  </md-input-container>
+  <!--input available place-->
+  <md-input-container class="md-block" flex-gt-xs>
+    <label class="md-title">Locuri disponibile</label>
+    <input name="availablePlaces" ng-model="$ctrl.job.available_places" required>
+    <div ng-messages="jobForm.availablePlaces.$error">
+      <div ng-message="required">C&acirc;mp obligatoriu!</div>
+    </div>
+  </md-input-container>
+</div>
+<!--input contact person-->
+<div layout-gt-xs="row">
+  <md-input-container class="md-block" flex-gt-xs>
+    <label class="md-title">Persoana de contact</label>
+    <input name="contact_person" ng-model="$ctrl.job.contact_person" minlength="5" md-maxlength="100" required>
+
+    <div ng-messages="jobForm.contact_person.$error">
+      <div ng-message="md-maxlength">Numele introdus trebuie s&#x103; aib&#x103; maxim 100 de caractere!</div>
+      <div ng-message="minlength">Numele trebuie s&#x103; aib&#x103; minim 5 caractere!</div>
+      <div ng-message="required">C&acirc;mp obligatoriu!</div>
+    </div>
+  </md-input-container>
+</div>
+<!--input job description-->
+<div layout-gt-xs="row">
+  <md-input-container class="md-block" flex-gt-xs>
+    <label class="md-title">Descriere </label>
+    <textarea ng-model="$ctrl.job.description" required md-maxlength="1000" rows="5" md-select-on-focus name="description" minlength="5" md-maxlength="1000"  style="text-align: justify"></textarea>
+        <div ng-messages="jobForm.description.$error">
+           <div ng-message="md-maxlength">Textul introdus este prea lung!</div>
+                  <div ng-message="minlength">Textul introdus este prea scurt!</div>
+            <div ng-message="required">C&acirc;mp obligatoriu!</div>
+        </div>
+
+  </md-input-container>
+</div>
+</md-whiteframe>
+</div>
+</div>
+
+
+
+

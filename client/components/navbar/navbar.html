@@ -1,0 +1,49 @@
+<div>
+  <div class="navbar header" ng-controller="NavbarController">
+
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" ng-click="nav.isCollapsed = !nav.isCollapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+    <div class="navbar-image">
+      <a href="#" class="navbar-brand" >
+        <img src="../assets/images/pentalog.png" alt="Pentalog" style=" width: 250px; padding-top: 5%" ></a>
+    </div>
+      <div  class="navbar-collapse collapse js-navbar-collapse" id="navbar-main">
+        <ul class="nav navbar-nav">
+          <li ng-repeat="item in nav.menu" ui-sref-active="active" ng-show="nav.isLoggedIn()">
+            <a ui-sref="{{item.state}}">{{item.title}}</a>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown" ng-show="nav.isAdmin()">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administrare <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li ng-repeat="item in nav.menuDropdown" ui-sref-active="active">
+                <a ui-sref="{{item.state}}">{{item.title}}</a>
+              </li>
+            </ul>
+          </li>
+          <!--<li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Sign up</a></li>-->
+
+          <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">Ie&#x15f;ire cont</a></li>
+
+        </ul>
+      </div>
+    <div class="inner">
+      <div class="top-bar-orange"></div>
+      <div class="top-bar-violet"></div>
+      <div class="top-bar-blue"></div>
+      <div class="top-bar-green"></div>
+      <div class="top-bar-bluesky"></div>
+    </div>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,36 @@
+<md-dialog aria-label="" ng-cloak>
+  <form class="form-horizontal" method="post" name="comment" id="comment"
+        ng-submit="comment.$valid && vm.commentAdd()">
+    <md-toolbar style="background-color: #aabcbd">
+      <div class="md-toolbar-tools">
+        <h2>Comentariu</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content style="min-width:800px;max-height:810px; ">
+      <div class="md-dialog-content">
+        <form name="dialogComment">
+          <md-input-container class="md-block" flex-gt-xs>
+            <label>Adaug&#x103; comentariu</label>
+            <textarea name="userCommentDialog" required md-maxlength="255"
+                      ng-model="vm.comment" style="text-align: justify"></textarea>
+            <div ng-messages="dialogComment.userCommentDialog.$error">
+              <div ng-message="required">C&acirc;mp obligatoriu.</div>
+              <div ng-message="md-maxlength">Este prea lung</div>
+            </div>
+          </md-input-container>
+        </form>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button class="md-raised md-primary" ng-click="vm.commentAdd()">
+        Confirm&#x103;
+      </md-button>
+      <md-button class="md-raised md-warn" ng-click="vm.cancel()" style="margin-right:20px;">
+        Anuleaz&#259;
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

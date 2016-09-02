@@ -1,0 +1,27 @@
+<md-dialog aria-label="" ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>&#350;tergere Oportunitate</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content style="min-width:800px;max-height:810px; ">
+      <div class="md-dialog-content">
+          <md-input-container class="md-block" flex-gt-xs>
+            Esti sigur c&#259; dore&#351;ti s&#259; &#351;tergi oportunitatea {{vm.jobTitle}}?
+          </md-input-container>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button  class="md-raised md-primary" ng-click="vm.deleteJob()">
+        Confirm&#259;
+      </md-button>
+      <md-button class="md-raised md-warn" ng-click="vm.cancel()" style="margin-right:20px;">
+        Anuleaz&#259;
+      </md-button>
+    </md-dialog-actions>
+
+</md-dialog>

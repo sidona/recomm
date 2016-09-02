@@ -1,0 +1,38 @@
+<md-dialog aria-label="" ng-cloak>
+  <form class="form-horizontal" method="post" name="applyJob" id="selfApply"
+        ng-submit="applyJob.$valid && vm.confirmApply()">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Aplic&#259; pentru oportunitatea {{vm.jobTitle}} </h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content style="min-width:800px;max-height:810px; ">
+      <div class="md-dialog-content">
+        <form name="dialogApply">
+          <md-input-container class="md-block" flex-gt-xs>
+            <label>Informa&#355;ii adi&#355;ionale</label>
+            <div ng-show="vm.disabledJob()">bla</div>
+            <textarea name="userApplyDialog" required md-maxlength="512"
+                      ng-model="vm.information"></textarea>
+            <div ng-messages="applyJob.userApplyDialog.$error">
+              <div ng-message="required">C&acirc;mp obligatoriu!</div>
+              <div ng-message="md-maxlength">Este prea lung</div>
+            </div>
+          </md-input-container>
+        </form>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button  class="md-raised md-primary" ng-click="vm.confirmApply()">
+        Confirm&#259;
+      </md-button>
+      <md-button class="md-raised md-warn" ng-click="vm.cancel()" style="margin-right:20px;">
+        Anuleaz&#259;
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
