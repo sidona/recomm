@@ -53,7 +53,7 @@ export default function(app) {
   app.use(passport.initialize());
   //app.use(passport.session());
 
-  var transporter = nodemailer.createTransport('smtps://sidmadalina%40gmail.com:brasov23152@smtp.gmail.com');
+  //var transporter = nodemailer.createTransport('smtps://sidmadalina%40gmail.com:brasov23152@smtp.gmail.com');
 
 
   var mailOptions = {
